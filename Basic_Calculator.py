@@ -21,16 +21,25 @@ y_val=tkinter.StringVar()
 x_label=tkinter.Label(root,text="X",font=(50))
 x_label.grid(row=0,column=1,padx=5,pady=5)
 
+# Function to set cursor at end when x_entry is clicked
+def x_cursor(event):
+    x_entry.icursor('end')
+
 # Entry widget of user input
 x_entry=tkinter.Entry(root,textvariable=x_val,justify="right",font=(50),relief='solid')
 x_entry.grid(row=0,column=2,columnspan=3,padx=(5,15))
+x_entry.bind('<FocusIn>',x_cursor)
 
 y_label=tkinter.Label(root,text="Y",font=(50))
 y_label.grid(row=1,column=1,padx=5,pady=5)
 
+def y_cursor(event):
+    y_entry.icursor('end')
+    
 # Entry widget of user input
 y_entry=tkinter.Entry(root,textvariable=y_val,justify="right",font=(50),relief='solid')
 y_entry.grid(row=1,column=2,columnspan=3,padx=(5,15))
+y_entry.bind('<FocusIn>',y_cursor)
 
 # Function to set x_entry to result and y_entry to 0 after deleting their previous content 
 def common(res):
